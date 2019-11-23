@@ -1,6 +1,7 @@
 package socketio
 
 import (
+	"context"
 	"net"
 	"net/http"
 	"net/url"
@@ -21,6 +22,7 @@ type Conn interface {
 	LocalAddr() net.Addr
 	RemoteAddr() net.Addr
 	RemoteHeader() http.Header
+	RequestContext() context.Context
 
 	// Context of this connection. You can save one context for one
 	// connection, and share it between all handlers. The handlers
